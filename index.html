@@ -6,7 +6,7 @@
     <title>Diyor Developer — Luxury Websites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700&family=Space+Grotesk:wght=500;600;700&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],display:['"Space Grotesk"','sans-serif']}}}};
@@ -18,13 +18,16 @@
         .text-gradient-neon{background:linear-gradient(90deg,#a78bfa 0%,#22d3ee 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
         .grid-bg{background-image:linear-gradient(rgba(255,255,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at center,black 40%,transparent 85%);mask-image:radial-gradient(ellipse at center,black 40%,transparent 85%);}
         .glow-orb{position:absolute;border-radius:9999px;filter:blur(90px);opacity:.55;pointer-events:none;}
-        .card-glass{background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015));border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(10px);}
+        .card-glass{background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015));border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(10px);transition:all 0.3s ease;}
+        .card-glass:hover{border-color:rgba(255,255,255,0.15);background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.025));}
         .btn-primary-glow{background:linear-gradient(135deg,#7c3aed 0%,#a855f7 50%,#6366f1 100%);box-shadow:0 10px 30px -10px rgba(124,58,237,.6),inset 0 1px 0 rgba(255,255,255,.2);transition:all .25s ease;color:#fff;}
         .btn-primary-glow:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 20px 50px -12px rgba(124,58,237,.9),0 0 40px rgba(168,85,247,.4);filter:brightness(1.1);}
         @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.7);}50%{box-shadow:0 0 0 10px rgba(16,185,129,0);}}
         .pulse-dot{animation:pulse-dot 2s infinite;}
         @keyframes float-slow{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(20px,-10px) scale(1.03);}}
         .float-slow{animation:float-slow 12s ease-in-out infinite;}
+        .project-img{transition:transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);}
+        .group:hover .project-img {transform:scale(1.05) translateY(-4px);}
     </style>
 </head>
 <body class="overflow-x-hidden">
@@ -101,7 +104,7 @@
         </div>
     </section>
 
-    <!-- PROJECTS (Bento Grid) -->
+    <!-- PROJECTS (Bento Grid with Real Live Images) -->
     <section id="work" class="py-20">
         <div class="mx-auto max-w-6xl px-4">
             <div class="text-center mb-10">
@@ -111,67 +114,58 @@
                 </h2>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- Project 1 -->
-                <div class="rounded-2xl group relative overflow-hidden card-glass p-5 md:col-span-2">
-                    <div class="flex flex-col gap-4 h-full justify-between">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="text-[10px] uppercase tracking-wider text-white/40">Web3 App</span>
-                                <h3 class="text-xl font-display font-semibold text-white mt-0.5">Aether</h3>
-                            </div>
-                        </div>
-                        <div class="h-24 rounded-lg bg-gradient-to-br from-purple-600/20 to-indigo-900/30 border border-white/5 flex items-center justify-center">
-                            <span class="text-xs tracking-widest text-white/20 font-mono">140ms Avg Response · 99.9% Uptime</span>
-                        </div>
-                        <p class="text-xs text-white/70">Real-time cross-chain trading dashboard with fluid data animations and liquidity pool monitoring.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Project 1: Aether -->
+                <a href="https://github.com" target="_blank" class="rounded-2xl group block overflow-hidden card-glass p-0 md:col-span-2 border border-white/10 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
+                    <div class="p-6 pb-4">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-purple-400">Web3 App</span>
+                        <h3 class="text-2xl font-display font-semibold text-white mt-1">Aether</h3>
+                        <div class="text-xs text-white/40 font-mono mt-1">140ms Avg Response · 99.9% Uptime</div>
+                        <p class="text-sm text-white/70 mt-3">Real-time cross-chain trading dashboard with fluid data animations and liquidity pool monitoring.</p>
                     </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="rounded-2xl group relative overflow-hidden card-glass p-5 md:col-span-1">
-                    <div class="flex flex-col gap-4 h-full justify-between">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="text-[10px] uppercase tracking-wider text-white/40">AI Startup</span>
-                                <h3 class="text-xl font-display font-semibold text-white mt-0.5">Nexus</h3>
-                            </div>
-                        </div>
-                        <div class="h-24 rounded-lg bg-gradient-to-br from-cyan-600/20 to-blue-900/30 border border-white/5 flex items-center justify-center">
-                            <span class="text-xs tracking-widest text-white/20 font-mono">100/100 Perf Score</span>
-                        </div>
-                        <p class="text-xs text-white/70">Monochromatic base with striking neon highlights, optimized for high-powered AI interactions.</p>
+                    <div class="overflow-hidden border-t border-white/5 bg-zinc-900/50">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1200&q=80" alt="Aether Project" class="project-img w-full h-64 object-cover object-top opacity-80 group-hover:opacity-100">
                     </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="rounded-2xl group relative overflow-hidden card-glass p-5 md:col-span-1">
-                    <div class="flex flex-col gap-4 h-full justify-between">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="text-[10px] uppercase tracking-wider text-white/40">Motion Agency</span>
-                                <h3 class="text-xl font-display font-semibold text-white mt-0.5">Chronos</h3>
-                            </div>
-                        </div>
-                        <div class="h-24 rounded-lg bg-gradient-to-br from-pink-600/20 to-purple-900/30 border border-white/5 flex items-center justify-center">
-                            <span class="text-xs tracking-widest text-white/20 font-mono">Interactive Fluid Design</span>
-                        </div>
-                        <p class="text-xs text-white/70">Artistic dark layout with dynamic canvas vector details and liquid creative animations.</p>
+                </a>
+
+                <!-- Project 2: Nexus -->
+                <a href="https://github.com" target="_blank" class="rounded-2xl group block overflow-hidden card-glass p-0 md:col-span-1 border border-white/10 hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-300">
+                    <div class="p-6 pb-4">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-cyan-400">AI Startup</span>
+                        <h3 class="text-2xl font-display font-semibold text-white mt-1">Nexus</h3>
+                        <div class="text-xs text-white/40 font-mono mt-1">100/100 Perf Score</div>
+                        <p class="text-sm text-white/70 mt-3">Monochromatic base with striking neon highlights, optimized for high-powered AI interactions.</p>
                     </div>
-                </div>
-                <!-- Project 4 -->
-                <div class="rounded-2xl group relative overflow-hidden card-glass p-5 md:col-span-2">
-                    <div class="flex flex-col gap-4 h-full justify-between">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <span class="text-[10px] uppercase tracking-wider text-white/40">Fintech SaaS</span>
-                                <h3 class="text-xl font-display font-semibold text-white mt-0.5">Pulse</h3>
-                            </div>
-                        </div>
-                        <div class="h-24 rounded-lg bg-gradient-to-br from-emerald-600/20 to-teal-900/30 border border-white/5 flex items-center justify-center">
-                            <span class="text-xs tracking-widest text-white/20 font-mono">Secure Encryption · $2.4M Daily Vol</span>
-                        </div>
-                        <p class="text-xs text-white/70">Structured financial workspace with cash flow graphs, SOC-2 compliant secure tables, and transaction metrics.</p>
+                    <div class="overflow-hidden border-t border-white/5 bg-zinc-900/50">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Nexus Project" class="project-img w-full h-64 object-cover center opacity-80 group-hover:opacity-100">
                     </div>
-                </div>
+                </a>
+
+                <!-- Project 3: Chronos -->
+                <a href="https://github.com" target="_blank" class="rounded-2xl group block overflow-hidden card-glass p-0 md:col-span-1 border border-white/10 hover:shadow-2xl hover:shadow-pink-500/10 transition-all duration-300">
+                    <div class="p-6 pb-4">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-pink-400">Motion Agency</span>
+                        <h3 class="text-2xl font-display font-semibold text-white mt-1">Chronos</h3>
+                        <div class="text-xs text-white/40 font-mono mt-1">Interactive Fluid Design</div>
+                        <p class="text-sm text-white/70 mt-3">Artistic dark layout with dynamic canvas vector details and liquid creative animations.</p>
+                    </div>
+                    <div class="overflow-hidden border-t border-white/5 bg-zinc-900/50">
+                        <img src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80" alt="Chronos Project" class="project-img w-full h-64 object-cover center opacity-80 group-hover:opacity-100">
+                    </div>
+                </a>
+
+                <!-- Project 4: Pulse -->
+                <a href="https://github.com" target="_blank" class="rounded-2xl group block overflow-hidden card-glass p-0 md:col-span-2 border border-white/10 hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300">
+                    <div class="p-6 pb-4">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-emerald-400">Fintech SaaS</span>
+                        <h3 class="text-2xl font-display font-semibold text-white mt-1">Pulse</h3>
+                        <div class="text-xs text-white/40 font-mono mt-1">Secure Encryption · $2.4M Daily Vol</div>
+                        <p class="text-sm text-white/70 mt-3">Structured financial workspace with cash flow graphs, SOC-2 compliant secure tables, and transaction metrics.</p>
+                    </div>
+                    <div class="overflow-hidden border-t border-white/5 bg-zinc-900/50">
+                        <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=1200&q=80" alt="Pulse Project" class="project-img w-full h-64 object-cover object-center opacity-80 group-hover:opacity-100">
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -230,7 +224,7 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT (With Instant Telegram & Instagram) -->
     <section id="contact" class="relative py-24">
         <div class="pointer-events-none absolute inset-0 -z-10">
             <div class="glow-orb" style="width:400px;height:400px;background:#10b981;bottom:-100px;left:30%;opacity:.2;"></div>
@@ -243,7 +237,27 @@
             <h2 class="mt-4 font-display text-3xl md:text-5xl font-semibold tracking-tight">
                 <span class="text-gradient-silver">Have an idea worth</span> <span class="text-gradient-neon">shipping?</span>
             </h2>
-            <div class="mt-8 card-glass p-5 rounded-2xl text-left">
+            
+            <!-- SOCIAL BUTTONS DIRECT LINK -->
+            <div class="mt-8 grid grid-cols-2 gap-3">
+                <a href="https://t.me/diyor_WA" target="_blank" class="flex items-center justify-center gap-2 border border-white/10 bg-white/[0.03] hover:bg-[#0088cc]/20 hover:border-[#0088cc]/50 rounded-xl py-3 text-sm font-medium text-white/90 transition-all duration-300">
+                    <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.7-2.46 2.75-2.67.01-.03.01-.15-.06-.21-.07-.06-.17-.04-.25-.02-.11.02-1.83 1.16-5.16 3.41-.49.33-.93.5-1.33.49-.44-.01-1.29-.25-1.92-.45-.77-.25-1.39-.39-1.34-.83.03-.23.35-.46.97-.71 3.8-1.65 6.34-2.74 7.61-3.26 3.61-1.48 4.36-1.74 4.85-1.75.11 0 .35.03.51.16.13.11.17.26.19.37z"/></svg>
+                    Telegram-ga yozish
+                </a>
+                <a href="https://instagram.com" target="_blank" class="flex items-center justify-center gap-2 border border-white/10 bg-white/[0.03] hover:bg-[#e1306c]/20 hover:border-[#e1306c]/50 rounded-xl py-3 text-sm font-medium text-white/90 transition-all duration-300">
+                    <svg class="h-4 w-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    Instagram Profil
+                </a>
+            </div>
+
+            <div class="relative flex py-5 items-center">
+                <div class="flex-grow border-t border-white/5"></div>
+                <span class="flex-shrink mx-4 text-[10px] text-white/20 uppercase font-mono tracking-widest">yoki taklif qoldiring</span>
+                <div class="flex-grow border-t border-white/5"></div>
+            </div>
+
+            <!-- PROPOSAL FORM -->
+            <div class="card-glass p-5 rounded-2xl text-left border border-white/5">
                 <form class="space-y-3" onsubmit="alert('Proposal Sent!'); return false;">
                     <div><input type="text" required placeholder="Your Name" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-violet-500"/></div>
                     <div><input type="email" required placeholder="Email Address" class="w-full bg-white/[0.03] border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-violet-500"/></div>
@@ -260,7 +274,7 @@
             <div>© 2026 Diyor Developer. All rights reserved.</div>
             <div class="flex gap-3">
                 <a href="https://t.me/diyor_WA" target="_blank" class="hover:text-white">Telegram</a>
-                <a href="https://github.com" target="_blank" class="hover:text-white">GitHub</a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-white">Instagram</a>
             </div>
         </div>
     </footer>
